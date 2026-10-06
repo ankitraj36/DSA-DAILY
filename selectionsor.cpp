@@ -5,19 +5,16 @@
 using namespace std;
 
 
-void bubblesort(int arr[] , int n){
-    bool isswap = false;
+void selectionsort(int arr[] , int n){
+  
     for(int i = 0; i<n-1; i++){
-        for(int j = 0; j<n-i-1; j++){
-            if(arr[j] > arr[j+1]){
-                isswap = true;
-                swap(arr[j] , arr[j+1]);
+          int smallidx = i;
+        for(int j = i+1; j<n; j++){
+            if(arr[j] < arr[smallidx]){
+                smallidx = j;
             }
         }
-    }
-
-    if(!isswap){
-        return;
+        swap(arr[i] , arr[smallidx]);
     }
 }
 
@@ -36,7 +33,7 @@ int main() {
     int arr[] = {1,12,3,4,5};
 
     int n =5;
-    bubblesort(arr , n);
+    selectionsort(arr , n);
     printarr(arr ,n);
     
 
